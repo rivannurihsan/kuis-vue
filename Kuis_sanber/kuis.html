@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    </head>
+    <body>
+        <div id="app">
+            <form @submit.prevent="CreateUser">
+                <input type="hidden" v-model="id">
+                <input v-model="Create_User" placeholder="Type Hero Name Here"/>
+                <button type="submmit" v-if="UpdateData == false">add
+                </button>
+                <button
+                    type="button"
+                    v-else="UpdateData == false"
+                    @click="UpdateUser(id, Create_User)">Update</button>
+            </form>
+            <ul>
+                <li v-for="(nama, index) in users" :key="index">
+                    <span>{{ nama.name }}
+                    </span>
+                    <div>
+                        <button @click="EditUser(index, nama.name)">Edit</button>
+                        ||
+                        <button @click="DeleteUser(index)">Delete</button>
+                    </div>
+                    <br>
+                </li>
+            </ul>
+        </div>
+        <script src="kuis.js"></script>
+    </body>
+</html>
